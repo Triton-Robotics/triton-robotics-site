@@ -25,5 +25,9 @@
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.10",
     "typescript": "^5.4.5"
-  }
+  },
+  "description": "Bare-bones Next.js + Tailwind scaffold configured for Netlify.",
+  "main": "postcss.config.js",
+  "author": "",
+  "license": "ISC"
 }
