@@ -22,23 +22,23 @@ export default function Page() {
         </nav>
       </header>
 
-      {/* HERO SECTION WITH BACKGROUND IMAGE */}
+      {/* HERO SECTION */}
       <section
-        className="relative h-[65vh] md:h-[80vh] flex items-center justify-center bg-cover bg-center"
+        className="relative w-full h-[85vh] flex flex-col items-center justify-start bg-cover bg-no-repeat"
         style={{
-          // Replace this URL with your actual hosted image path
-          backgroundImage: `url('/photos/background_of_front_page.png')`
+          backgroundImage: `url('/photos/background_of_front_page.png')`,
+          backgroundPosition: 'bottom',
         }}
       >
-        {/* Overlay for text readability */}
-        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+        <div className="absolute inset-0 bg-black/20" />
 
-        {/* Floating Mascot Icon (Top Right) */}
-        <div className="absolute top-10 right-10 z-20 w-16 h-16 bg-white rounded-full border-4 border-[#1B2B44] overflow-hidden shadow-xl hidden md:block">
-          <div className="w-full h-full flex items-center justify-center text-2xl">🐱</div>
+        {/* Floating Mascot Icon */}
+        <div className="absolute top-10 right-10 z-20 w-16 h-16 bg-white rounded-full border-4 border-[#1B2B44] overflow-hidden shadow-xl hidden md:flex items-center justify-center text-2xl">
+          🐱
         </div>
 
-        <h1 className="relative z-10 text-white text-6xl md:text-9xl font-black tracking-tighter text-center drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
+        {/* MOVED TEXT DOWN: Changed pt-24 to pt-48 */}
+        <h1 className="relative z-10 text-white text-6xl md:text-9xl font-black tracking-tighter text-center drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)] pt-48">
           TRITON ROBOTICS
         </h1>
       </section>
@@ -51,7 +51,6 @@ export default function Page() {
         <h2 className="text-3xl font-extrabold text-[#1B2B44] mb-2 uppercase tracking-tight">Follow Our Journey</h2>
         <p className="text-gray-500 text-lg mb-16 max-w-2xl mx-auto">Stay updated with our latest builds, competitions, and team adventures.</p>
 
-        {/* INSTAGRAM GRID SKELETON */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[1, 2, 3, 4, 5, 6].map((post) => (
             <div key={post} className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden text-left">
@@ -62,7 +61,7 @@ export default function Page() {
                 <span className="text-sm font-bold text-[#1B2B44]">tritonrobotics</span>
               </div>
               <div className="aspect-square bg-slate-50 flex items-center justify-center">
-                <div className="text-slate-300 font-medium">Build Photo #{post}</div>
+                <div className="text-slate-300 font-medium text-center px-4">Robot Action Shot #{post}</div>
               </div>
               <div className="p-4">
                 <div className="flex gap-4 mb-3 text-xl">
@@ -88,25 +87,22 @@ export default function Page() {
       {/* FOOTER */}
       <footer className="bg-[#1B2B44] text-white pt-20 pb-10 px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 items-center gap-12">
-          {/* Logo Section */}
           <div className="flex justify-center md:justify-start">
             <div className="w-28 h-28 bg-[#FFCD00] rounded-full flex items-center justify-center text-5xl shadow-[0_0_30px_rgba(255,205,0,0.3)]">
               🔱
             </div>
           </div>
 
-          {/* Social Links */}
           <div className="text-center">
             <h3 className="font-black text-xl mb-6 uppercase tracking-widest text-[#FFCD00]">Connect with us!</h3>
             <ul className="space-y-4 font-medium">
-              <li><a href="#" className="hover:text-[#FFCD00] transition-colors flex items-center justify-center gap-2">📸 Instagram</a></li>
-              <li><a href="#" className="hover:text-[#FFCD00] transition-colors flex items-center justify-center gap-2">🎥 YouTube</a></li>
-              <li><a href="#" className="hover:text-[#FFCD00] transition-colors flex items-center justify-center gap-2">💬 Discord</a></li>
-              <li><a href="#" className="hover:text-[#FFCD00] transition-colors flex items-center justify-center gap-2">✉️ Email</a></li>
+              <li><a href="#" className="hover:text-[#FFCD00] transition-colors">📸 Instagram</a></li>
+              <li><a href="#" className="hover:text-[#FFCD00] transition-colors">🎥 YouTube</a></li>
+              <li><a href="#" className="hover:text-[#FFCD00] transition-colors">💬 Discord</a></li>
+              <li><a href="#" className="hover:text-[#FFCD00] transition-colors">✉️ Email</a></li>
             </ul>
           </div>
 
-          {/* Bottom Mascot Placeholder */}
           <div className="flex justify-center md:justify-end">
             <div className="relative group">
               <div className="w-24 h-24 bg-white rounded-2xl flex items-center justify-center text-4xl shadow-2xl border-4 border-[#FFCD00] rotate-3 group-hover:rotate-0 transition-transform">
