@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Page() {
   return (
-    <div className="flex flex-col min-h-screen bg-white text-gray-900 font-sans">
+    <div className="flex flex-col min-h-screen bg-white text-gray-900 font-mono">
       {/* HEADER */}
       <header className="bg-[#1B2B44] text-white p-4 flex justify-between items-center sticky top-0 z-50 shadow-md">
         <div className="flex items-center gap-2">
