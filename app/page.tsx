@@ -1,4 +1,5 @@
 import React from 'react';
+import Script from "next/script";
 
 export default function Page() {
   return (
@@ -51,37 +52,28 @@ export default function Page() {
         <h2 className="text-3xl font-extrabold text-[#1B2B44] mb-2 uppercase tracking-tight">Follow Our Journey</h2>
         <p className="text-gray-500 text-lg mb-16 max-w-2xl mx-auto">Stay updated with our latest builds, competitions, and team adventures.</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[1, 2, 3, 4, 5, 6].map((post) => (
-            <div key={post} className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden text-left">
-              <div className="p-4 flex items-center gap-3 border-b border-gray-50">
-                <div className="w-8 h-8 bg-gradient-to-tr from-yellow-400 to-orange-500 rounded-full p-[2px]">
-                  <div className="w-full h-full bg-white rounded-full" />
-                </div>
-                <span className="text-sm font-bold text-[#1B2B44]">tritonrobotics</span>
-              </div>
-              <div className="aspect-square bg-slate-50 flex items-center justify-center">
-                <div className="text-slate-300 font-medium text-center px-4">Robot Action Shot #{post}</div>
-              </div>
-              <div className="p-4">
-                <div className="flex gap-4 mb-3 text-xl">
-                  <button className="hover:scale-110 transition-transform">❤️</button>
-                  <button className="hover:scale-110 transition-transform">💬</button>
-                  <button className="hover:scale-110 transition-transform">✈️</button>
-                </div>
-                <p className="font-bold text-sm mb-1">1,248 likes</p>
-                <p className="text-sm leading-relaxed">
-                  <span className="font-bold mr-2 text-[#1B2B44]">tritonrobotics</span>
-                  Testing the new vision algorithms at Geisel today! 🤖🔭 #UCSD #Robotics
-                </p>
-              </div>
-            </div>
-          ))}
+        <div className="max-w-4xl mx-auto mt-12">
+        <Script
+          src="https://cdn.lightwidget.com/widgets/lightwidget.js"
+          strategy="lazyOnload"
+        />
+
+        <iframe
+          src="//lightwidget.com/widgets/309c40047dd25a3a859bbd5007a8345f.html"
+          scrolling="no"
+          allowTransparency={true}
+          className="w-full border-0 overflow-hidden rounded-xl shadow-md"
+          style={{ height: "600px" }}
+        />
         </div>
 
-        <button className="mt-16 bg-[#FFCD00] hover:bg-[#e6b800] text-[#1B2B44] font-black px-10 py-4 rounded-full text-lg shadow-lg hover:shadow-xl transition-all uppercase tracking-widest">
+        <a
+          href="https://instagram.com/tritonrobotics"
+          target="_blank"
+          className="inline-block mt-16 bg-[#FFCD00] hover:bg-[#e6b800] text-[#1B2B44] font-black px-10 py-4 rounded-full text-lg shadow-lg hover:shadow-xl transition-all uppercase tracking-widest"
+        >
           Follow us on Instagram
-        </button>
+        </a>
       </section>
 
       {/* FOOTER */}
