@@ -1,5 +1,6 @@
 import React from 'react';
 import Script from "next/script";
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -14,7 +15,7 @@ export default function Page() {
         <nav className="hidden md:flex gap-8 items-center text-sm font-semibold tracking-wide">
           <a href="#" className="hover:text-[#FFCD00] transition-colors">Home</a>
           <a href="#" className="hover:text-[#FFCD00] transition-colors">About</a>
-          <a href="#" className="hover:text-[#FFCD00] transition-colors">Sponsors</a>
+          <Link href="/sponsors" className="hover:text-[#FFCD00] transition-colors"> Sponsors </Link>
           <a href="#" className="hover:text-[#FFCD00] transition-colors">Events</a>
           <div className="flex gap-2 ml-4">
             <button className="bg-white text-[#1B2B44] px-5 py-1.5 rounded font-bold hover:bg-gray-100 transition-colors">Sign In</button>
