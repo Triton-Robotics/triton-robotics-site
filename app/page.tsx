@@ -32,10 +32,15 @@ export default function Page() {
       {/* TRANSITION BAR */}
       <div className="h-2 bg-gradient-to-r from-[#FFCD00] via-[#1B2B44] to-[#FFCD00]" />
 
-      {/* FOLLOW OUR JOURNEY CONTENT */}
+      {/* FOLLOW OUR JOURNEY */}
       <section className="py-20 px-4 max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl font-extrabold text-[#1B2B44] mb-2 uppercase tracking-tight">Follow Our Journey</h2>
-        <p className="text-gray-500 text-lg mb-16 max-w-2xl mx-auto">Stay updated with our latest builds, competitions, and team adventures.</p>
+        <h2 className="text-3xl font-semibold text-[#1B2B44] mb-2 tracking-tight">
+          Follow Our Journey
+        </h2>
+
+        <p className="text-gray-500 text-lg mb-16 max-w-2xl mx-auto">
+          Stay updated with our latest builds, competitions, and team adventures.
+        </p>
 
         <div className="max-w-4xl mx-auto mt-12">
           <Script
@@ -53,7 +58,7 @@ export default function Page() {
         <a
           href="https://instagram.com/tritonrobotics"
           target="_blank"
-          className="inline-block mt-16 bg-[#FFCD00] hover:bg-[#e6b800] text-[#1B2B44] font-black px-10 py-4 rounded-full text-lg shadow-lg hover:shadow-xl transition-all uppercase tracking-widest"
+          className="inline-block mt-16 bg-[#FFCD00] hover:bg-[#e6b800] text-[#1B2B44] font-semibold px-10 py-4 rounded-full text-lg shadow-lg hover:shadow-xl transition-all"
         >
           Follow us on Instagram
         </a>
