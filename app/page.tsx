@@ -34,14 +34,19 @@ export default function Page() {
         <div className="absolute inset-0 bg-black/20" />
 
         {/* Floating Mascot Icon */}
-        <div className="absolute top-10 right-10 z-20 w-16 h-16 bg-white rounded-full border-4 border-[#1B2B44] overflow-hidden shadow-xl hidden md:flex items-center justify-center text-2xl">
+        {/* <div className="absolute top-10 right-10 z-20 w-16 h-16 bg-white rounded-full border-4 border-[#1B2B44] overflow-hidden shadow-xl hidden md:flex items-center justify-center text-2xl">
           🐱
-        </div>
+        </div> */}
 
-        {/* MOVED TEXT DOWN: Changed pt-24 to pt-48 */}
+        {/* MOVED TEXT DOWN: Changed pt-24 to pt-48
         <h1 className="relative z-10 text-white text-6xl md:text-9xl font-black tracking-tighter text-center drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)] pt-48">
           TRITON ROBOTICS
-        </h1>
+        </h1> */}
+        <img
+          src="/photos/Triton_Robotics_Letter_Logo_1.png"
+          alt="Triton Robotics Logo"
+          className="relative z-10 w-full max-w-[80%] pt-48 drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]"
+        />
       </section>
 
       {/* TRANSITION BAR */}
@@ -61,7 +66,7 @@ export default function Page() {
         <iframe
           src="//lightwidget.com/widgets/309c40047dd25a3a859bbd5007a8345f.html"
           scrolling="no"
-          allowTransparency={true}
+          // allowTransparency={true}
           className="w-full border-0 overflow-hidden rounded-xl shadow-md"
           style={{ height: "600px" }}
         />
@@ -97,10 +102,10 @@ export default function Page() {
 
           <div className="flex justify-center md:justify-end">
             <div className="relative group">
-              <div className="w-24 h-24 bg-white rounded-2xl flex items-center justify-center text-4xl shadow-2xl border-4 border-[#FFCD00] rotate-3 group-hover:rotate-0 transition-transform">
+              {/* <div className="w-24 h-24 bg-white rounded-2xl flex items-center justify-center text-4xl shadow-2xl border-4 border-[#FFCD00] rotate-3 group-hover:rotate-0 transition-transform">
                 🐱
-              </div>
-              <div className="absolute -top-4 -right-4 bg-red-500 text-white text-[10px] px-2 py-1 rounded-full font-bold">LIVE</div>
+              </div> */}
+              {/* <div className="absolute -top-4 -right-4 bg-red-500 text-white text-[10px] px-2 py-1 rounded-full font-bold">LIVE</div> */}
             </div>
           </div>
         </div>
