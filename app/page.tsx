@@ -1,4 +1,5 @@
 import React from 'react';
+import Script from "next/script";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 
@@ -68,28 +69,18 @@ export default function Page() {
           Stay updated with our latest builds, competitions, and team adventures.
         </p>
 
-        <div className="max-w-4xl mx-auto mt-12 rounded-3xl border border-[#1B2B44]/10 bg-white p-10 shadow-md">
-          <div className="grid gap-6 md:grid-cols-3">
-            <div className="rounded-2xl bg-[#1B2B44] p-6 text-left text-white">
-              <p className="text-sm uppercase tracking-[0.25em] text-[#FFCD00]">Instagram</p>
-              <h3 className="mt-3 text-2xl font-semibold">Latest updates</h3>
-              <p className="mt-3 text-sm leading-6 text-white/80">
-                Follow our build progress, events, and competition highlights on Instagram.
-              </p>
-            </div>
-            <div className="rounded-2xl bg-[#f6f8fb] p-6 text-left">
-              <p className="text-sm font-semibold text-[#1B2B44]">Build season</p>
-              <p className="mt-2 text-sm text-gray-600">
-                Behind-the-scenes photos, lab work, and testing updates from the team.
-              </p>
-            </div>
-            <div className="rounded-2xl bg-[#f6f8fb] p-6 text-left">
-              <p className="text-sm font-semibold text-[#1B2B44]">Competitions</p>
-              <p className="mt-2 text-sm text-gray-600">
-                Match recaps, travel moments, and announcements from upcoming events.
-              </p>
-            </div>
-          </div>
+        <div className="max-w-4xl mx-auto mt-12">
+          <Script
+            src="https://cdn.lightwidget.com/widgets/lightwidget.js"
+            strategy="lazyOnload"
+          />
+
+          <iframe
+            src="//lightwidget.com/widgets/309c40047dd25a3a859bbd5007a8345f.html"
+            scrolling="no"
+            className="w-full border-0 overflow-hidden rounded-xl shadow-md"
+            style={{ height: "600px" }}
+          />
         </div>
 
         <a
