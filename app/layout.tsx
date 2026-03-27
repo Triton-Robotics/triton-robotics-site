@@ -12,7 +12,6 @@ import { siInstagram, siYoutube, siDiscord } from 'simple-icons';
 // };
 
 import { Inter } from 'next/font/google'
-import Link from 'next/link';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -38,10 +37,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               // A Link when on any other page
               <Link href="/" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
                 <img src="/photos/logo.png" alt="Triton Logo" className="w-10 h-10 object-contain" />
-                <img 
-                  src="/photos/Triton_Robotics_Letter_Logo_1.png" 
-                  alt="Triton Robotics" 
-                  className="h-8 w-auto object-contain hidden sm:block" 
+                <img
+                  src="/photos/Triton_Robotics_Letter_Logo_1.png"
+                  alt="Triton Robotics"
+                  className="h-8 w-auto object-contain hidden sm:block"
                 />
               </Link>
             )}
@@ -58,11 +57,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`px-3 py-2 rounded-md transition-all duration-200 ${
-                    isActive 
-                      ? "bg-white/10 text-[#FFCD00]" // Active style: subtle light blue background + Gold text
-                      : "hover:text-[#FFCD00] text-white" // Inactive style
-                  }`}
+                  className={`px-3 py-2 rounded-md transition-all duration-200 ${isActive
+                    ? "bg-white/10 text-[#FFCD00]" // Active style: subtle light blue background + Gold text
+                    : "hover:text-[#FFCD00] text-white" // Inactive style
+                    }`}
                 >
                   {link.name}
                 </Link>
@@ -70,9 +68,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             })}
 
             <div className="flex gap-2 ml-4">
-              <button className="bg-white text-[#1B2B44] px-5 py-1.5 rounded font-bold hover:bg-gray-100 transition-colors">
+              <Link
+                href="/member-login"
+                className="bg-white text-[#1B2B44] px-5 py-1.5 rounded font-bold hover:bg-gray-100 transition-colors"
+              >
                 Sign In
-              </button>
+              </Link>
               <button className="bg-[#334155] text-white px-5 py-1.5 rounded font-bold hover:bg-[#475569] transition-colors">
                 Register
               </button>
