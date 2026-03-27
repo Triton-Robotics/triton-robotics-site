@@ -1,70 +1,74 @@
-import Link from "next/link";
+"use client";
+
+import React from 'react';
+import { signIn } from "next-auth/react"
+import { siGoogle } from 'simple-icons';
 
 export default function MemberLoginPage() {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#26476a]">
-      <div className="overflow-hidden md:grid md:min-h-screen md:grid-cols-[1.05fr_1fr]">
+    // h-screen makes it exactly the height of the window
+    // overflow-hidden kills the scrollbar
+    <main className="h-screen w-full overflow-hidden bg-[#1B2B44]">
+      <div className="grid h-full w-full md:grid-cols-[1.05fr_1fr]">
+        
+        {/* LEFT SECTION: Image & Logo */}
         <section
-          className="relative min-h-[360px] overflow-hidden bg-cover"
+          className="relative hidden md:block h-full overflow-hidden bg-cover"
           style={{
             backgroundImage: "url('/photos/group_pic.png')",
             backgroundPosition: "center top",
           }}
         >
-          <div className="absolute inset-0 bg-[#0f172a]/12" />
-
-          <div className="relative flex h-full items-center justify-center px-6 py-12 md:px-8">
-            <div className="mt-0 flex w-full max-w-[760px] items-center justify-center gap-4 md:-mt-24 md:gap-5">
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="relative flex h-full items-center justify-center px-8">
+            <div className="flex w-full items-center justify-center gap-5">
               <img
                 src="/photos/logo.png"
                 alt="Triton Robotics crest"
-                className="w-20 shrink-0 drop-shadow-[0_8px_24px_rgba(0,0,0,0.45)] md:w-24"
+                className="w-24 shrink-0 drop-shadow-2xl"
               />
               <img
                 src="/photos/Triton_Robotics_Letter_Logo_1.png"
                 alt="Triton Robotics wordmark"
-                className="w-full max-w-[560px] drop-shadow-[0_6px_18px_rgba(0,0,0,0.45)]"
+                className="w-full max-w-[400px] drop-shadow-2xl"
               />
             </div>
           </div>
         </section>
 
-        <section className="flex items-center justify-center px-8 py-16 md:px-14">
-          <div className="w-full max-w-[420px] text-white">
-            <h1 className="mb-10 text-5xl font-light tracking-tight">Sign in</h1>
+        {/* RIGHT SECTION: Login Action */}
+        <section className="flex h-full items-center justify-center px-8 bg-[#1B2B44]">
+          <div className="w-full max-w-[400px] text-white">
+            <div className="mb-8 text-center md:text-left">
+              <h1 className="text-4xl font-light tracking-tight mb-2">Member Portal</h1>
+              <p className="text-gray-400">Sign in to the team dashboard.</p>
+            </div>
 
-            <form className="rounded-md bg-[#f5f2ef] p-5 text-[#1f1f1f] shadow-xl">
-              <label htmlFor="email" className="mb-2 block text-lg">
-                Email
-              </label>
-              <input
-                id="email"
-                type="email"
-                placeholder="[your email]@ucsd.edu"
-                className="mb-6 h-12 w-full rounded-lg border border-gray-300 bg-white px-4 text-base outline-none transition focus:border-[#26476a]"
-              />
-
-              <label htmlFor="password" className="mb-2 block text-lg">
-                Password
-              </label>
-              <input
-                id="password"
-                type="password"
-                placeholder="[your password]"
-                className="mb-6 h-12 w-full rounded-lg border border-gray-300 bg-white px-4 text-base outline-none transition focus:border-[#26476a]"
-              />
-
+            <div className="rounded-xl bg-white p-8 shadow-2xl">
               <button
-                type="submit"
-                className="mb-5 h-12 w-full rounded-lg border border-[#7a5c1c] bg-[#f7bf5e] text-xl font-medium text-[#1f1f1f] transition hover:bg-[#efb44d]"
+                onClick={async () => {
+                  const result = await signIn("google", { 
+                    callbackUrl: "/member-home", // Where they go after success
+                    redirect: true 
+                  });
+                  
+                  if (result?.error) {
+                    // You can add a state variable to show a "Access Denied" message here
+                    console.error("Login failed:", result.error);
+                  }
+                }}
+                className="flex w-full items-center justify-center gap-4 rounded-lg border border-gray-300 bg-white py-3 text-lg font-semibold text-gray-700 transition-all hover:bg-gray-50 active:scale-[0.98]"
               >
-                Sign In
+                <svg role="img" viewBox="0 0 24 24" className="w-5 h-5 fill-[#4285F4]" xmlns="http://www.w3.org/2000/svg">
+                  <path d={siGoogle.path} />
+                </svg>
+                Continue with Google
               </button>
-
-              <a href="#" className="text-lg underline underline-offset-4">
-                Forgot password?
-              </a>
-            </form>
+              
+              <p className="mt-6 text-center text-xs text-gray-500 uppercase tracking-widest">
+                @ucsd.edu only
+              </p>
+            </div>
           </div>
         </section>
       </div>
