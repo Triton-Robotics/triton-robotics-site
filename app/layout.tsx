@@ -3,6 +3,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import { siInstagram, siYoutube, siDiscord } from 'simple-icons';
 
 // export const metadata: Metadata = {
@@ -12,7 +13,7 @@ import { siInstagram, siYoutube, siDiscord } from 'simple-icons';
 
 import { Inter } from 'next/font/google'
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter', // Add this line
 })
@@ -28,13 +29,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="bg-[#1B2B44] text-white p-4 flex justify-between items-center sticky top-0 z-50 shadow-md">
           <div className="flex items-center gap-4">
             <img src="/photos/logo.png" alt="Triton Logo" className="w-10 h-10 object-contain" />
-            
+
             {/* Show letter logo ONLY if NOT on home page */}
             {!isHomePage && (
-              <img 
-                src="/photos/Triton_Robotics_Letter_Logo_1.png" 
-                alt="Triton Robotics" 
-                className="h-8 w-auto object-contain hidden sm:block" 
+              <img
+                src="/photos/Triton_Robotics_Letter_Logo_1.png"
+                alt="Triton Robotics"
+                className="h-8 w-auto object-contain hidden sm:block"
               />
             )}
           </div>
@@ -45,12 +46,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <a href="/sponsors" className="hover:text-[#FFCD00] transition-colors">Sponsors</a>
             <a href="/events" className="hover:text-[#FFCD00] transition-colors">Events</a>
             <div className="flex gap-2 ml-4">
-              <button className="bg-white text-[#1B2B44] px-5 py-1.5 rounded font-bold hover:bg-gray-100 transition-colors">Sign In</button>
+              <Link href="/member-login" className="bg-white text-[#1B2B44] px-5 py-1.5 rounded font-bold hover:bg-gray-100 transition-colors">Sign In</Link>
               <button className="bg-[#334155] text-white px-5 py-1.5 rounded font-bold hover:bg-[#475569] transition-colors">Register</button>
             </div>
           </nav>
         </header>
-        
+
         {/* ACTUAL PAGE CONTENT */}
         <main className="flex-grow">
           {children}
@@ -61,10 +62,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 items-center gap-12">
             {/* LEFT: Logo */}
             <div className="flex justify-center md:justify-start">
-              <img 
-                src="/photos/logo.png" 
-                alt="Triton Logo" 
-                className="w-28 h-28 object-contain" 
+              <img
+                src="/photos/logo.png"
+                alt="Triton Logo"
+                className="w-28 h-28 object-contain"
               />
             </div>
 
