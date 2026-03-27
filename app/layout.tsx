@@ -3,7 +3,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { usePathname } from 'next/navigation';
-import Link from 'next/link';
 import { siInstagram, siYoutube, siDiscord } from 'simple-icons';
 
 // export const metadata: Metadata = {
