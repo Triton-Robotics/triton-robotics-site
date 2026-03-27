@@ -12,6 +12,7 @@ import { siInstagram, siYoutube, siDiscord } from 'simple-icons';
 // };
 
 import { Inter } from 'next/font/google'
+import Link from 'next/link';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -20,7 +21,7 @@ const inter = Inter({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
+  const isHomePage = pathname === "/" || pathname === null;
 
   return (
     <html lang="en">
@@ -28,26 +29,53 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* GLOBAL HEADER */}
         <header className="bg-[#1B2B44] text-white p-4 flex justify-between items-center sticky top-0 z-50 shadow-md">
           <div className="flex items-center gap-4">
-            <img src="/photos/logo.png" alt="Triton Logo" className="w-10 h-10 object-contain" />
-
-            {/* Show letter logo ONLY if NOT on home page */}
-            {!isHomePage && (
-              <img
-                src="/photos/Triton_Robotics_Letter_Logo_1.png"
-                alt="Triton Robotics"
-                className="h-8 w-auto object-contain hidden sm:block"
-              />
+            {isHomePage ? (
+              // Just a div when on home page (not clickable)
+              <div className="flex items-center gap-4">
+                <img src="/photos/logo.png" alt="Triton Logo" className="w-10 h-10 object-contain" />
+              </div>
+            ) : (
+              // A Link when on any other page
+              <Link href="/" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
+                <img src="/photos/logo.png" alt="Triton Logo" className="w-10 h-10 object-contain" />
+                <img 
+                  src="/photos/Triton_Robotics_Letter_Logo_1.png" 
+                  alt="Triton Robotics" 
+                  className="h-8 w-auto object-contain hidden sm:block" 
+                />
+              </Link>
             )}
           </div>
 
-          <nav className="hidden md:flex gap-8 items-center text-sm font-semibold tracking-wide">
-            <a href="/" className="hover:text-[#FFCD00] transition-colors">Home</a>
-            <a href="/about" className="hover:text-[#FFCD00] transition-colors">About</a>
-            <a href="/sponsors" className="hover:text-[#FFCD00] transition-colors">Sponsors</a>
-            <a href="/events" className="hover:text-[#FFCD00] transition-colors">Events</a>
+          <nav className="hidden md:flex gap-6 items-center text-sm font-semibold tracking-wide">
+            {[
+              { name: 'About', href: '/about' },
+              { name: 'Sponsors', href: '/sponsors' },
+              { name: 'Events', href: '/events' },
+            ].map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`px-3 py-2 rounded-md transition-all duration-200 ${
+                    isActive 
+                      ? "bg-white/10 text-[#FFCD00]" // Active style: subtle light blue background + Gold text
+                      : "hover:text-[#FFCD00] text-white" // Inactive style
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
+
             <div className="flex gap-2 ml-4">
-              <Link href="/member-login" className="bg-white text-[#1B2B44] px-5 py-1.5 rounded font-bold hover:bg-gray-100 transition-colors">Sign In</Link>
-              <button className="bg-[#334155] text-white px-5 py-1.5 rounded font-bold hover:bg-[#475569] transition-colors">Register</button>
+              <button className="bg-white text-[#1B2B44] px-5 py-1.5 rounded font-bold hover:bg-gray-100 transition-colors">
+                Sign In
+              </button>
+              <button className="bg-[#334155] text-white px-5 py-1.5 rounded font-bold hover:bg-[#475569] transition-colors">
+                Register
+              </button>
             </div>
           </nav>
         </header>
