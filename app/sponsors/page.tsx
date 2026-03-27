@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function SponsorsPage() {
   return (
-    <div className="min-h-screen bg-[#E5E7EB] text-center px-6 py-16">
+    <div className="min-h-screen text-center px-6 py-16">
 
       {/* TITLE */}
       <h1 className="text-3xl md:text-4xl font-semibold text-[#1B2B44] mb-12">
