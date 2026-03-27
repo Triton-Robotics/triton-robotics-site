@@ -3,6 +3,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import { siInstagram, siYoutube, siDiscord } from 'simple-icons';
 
 // export const metadata: Metadata = {
@@ -13,7 +14,7 @@ import { siInstagram, siYoutube, siDiscord } from 'simple-icons';
 import { Inter } from 'next/font/google'
 import Link from 'next/link';
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter', // Add this line
 })
@@ -78,7 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </nav>
         </header>
-        
+
         {/* ACTUAL PAGE CONTENT */}
         <main className="flex-grow">
           {children}
@@ -89,10 +90,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 items-center gap-12">
             {/* LEFT: Logo */}
             <div className="flex justify-center md:justify-start">
-              <img 
-                src="/photos/logo.png" 
-                alt="Triton Logo" 
-                className="w-28 h-28 object-contain" 
+              <img
+                src="/photos/logo.png"
+                alt="Triton Logo"
+                className="w-28 h-28 object-contain"
               />
             </div>
 
