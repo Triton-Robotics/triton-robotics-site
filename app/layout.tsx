@@ -20,7 +20,7 @@ const inter = Inter({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
+  const isHomePage = pathname === "/" || pathname === null;
 
   return (
     <html lang="en">
