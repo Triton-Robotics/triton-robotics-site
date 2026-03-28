@@ -1,70 +1,95 @@
-import Link from "next/link";
+"use client";
+
+import React from 'react';
+import { signIn } from "next-auth/react"
+import { siGoogle } from 'simple-icons';
+import { useSearchParams } from 'next/navigation';
 
 export default function MemberLoginPage() {
+  const searchParams = useSearchParams();
+  const error = searchParams.get('error');
+
   return (
-    <main className="min-h-screen overflow-hidden bg-[#26476a]">
-      <div className="overflow-hidden md:grid md:min-h-screen md:grid-cols-[1.05fr_1fr]">
+    // h-screen makes it exactly the height of the window
+    // overflow-hidden disables scrollbar
+    <main className="h-screen w-full overflow-hidden bg-[#1B2B44]">
+      <div className="grid h-full w-full md:grid-cols-[1.05fr_1fr]">
+        
+        {/* LEFT SECTION: Image & Logo */}
         <section
-          className="relative min-h-[360px] overflow-hidden bg-cover"
+          className="relative hidden md:block h-full overflow-hidden bg-cover"
           style={{
-            backgroundImage: "url('/photos/group_pic.png')",
+            backgroundImage: "url('/photos/group_pic_edit.png')",
             backgroundPosition: "center top",
+            backgroundSize: "cover",
           }}
         >
-          <div className="absolute inset-0 bg-[#0f172a]/12" />
-
-          <div className="relative flex h-full items-center justify-center px-6 py-12 md:px-8">
-            <div className="mt-0 flex w-full max-w-[760px] items-center justify-center gap-4 md:-mt-24 md:gap-5">
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="relative flex h-full items-center justify-center px-8">
+            <div className="flex w-full items-center justify-center gap-5">
               <img
                 src="/photos/logo.png"
                 alt="Triton Robotics crest"
-                className="w-20 shrink-0 drop-shadow-[0_8px_24px_rgba(0,0,0,0.45)] md:w-24"
+                className="w-64 shrink-0 drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all"
               />
-              <img
+              {/* <img
                 src="/photos/Triton_Robotics_Letter_Logo_1.png"
                 alt="Triton Robotics wordmark"
-                className="w-full max-w-[560px] drop-shadow-[0_6px_18px_rgba(0,0,0,0.45)]"
-              />
+                className="w-full max-w-[400px] drop-shadow-2xl"
+              /> */}
             </div>
           </div>
         </section>
 
-        <section className="flex items-center justify-center px-8 py-16 md:px-14">
-          <div className="w-full max-w-[420px] text-white">
-            <h1 className="mb-10 text-5xl font-light tracking-tight">Sign in</h1>
+        {/* bg-[#1B2B44] */}
+        {/* RIGHT SECTION: Login Action */}
+        <section className="flex h-full items-center justify-center px-8 bg-white">
+          <div className="w-full max-w-[400px] text-white">
+            {/* Error box for if login fails */}
+            {error && (
+              <div className="mb-6 rounded-lg border border-red-500/50 bg-red-500/10 p-4 text-sm text-red-200 animate-in fade-in slide-in-from-top-2 duration-300">
+                <div className="flex items-center gap-3">
+                  <svg className="h-5 w-5 shrink-0 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
+                  <span>
+                    {error === "AccessDenied" 
+                      ? "Access Denied: Your email is not on the authorized whitelist. If this is a mistake, please contact us on Discord: https://discord.gg/P2Pd55NUU" 
+                      : "An error occurred. Please try again or contact an admin."}
+                  </span>
+                </div>
+              </div>
+            )}
+            <div className="mb-8 text-center md:text-left">
+              <h1 className="text-4xl tracking-tight mb-2 text-black">Member Portal</h1>
+              <p className="text-gray-600">Sign in to the team dashboard.</p>
+            </div>
 
-            <form className="rounded-md bg-[#f5f2ef] p-5 text-[#1f1f1f] shadow-xl">
-              <label htmlFor="email" className="mb-2 block text-lg">
-                Email
-              </label>
-              <input
-                id="email"
-                type="email"
-                placeholder="[your email]@ucsd.edu"
-                className="mb-6 h-12 w-full rounded-lg border border-gray-300 bg-white px-4 text-base outline-none transition focus:border-[#26476a]"
-              />
-
-              <label htmlFor="password" className="mb-2 block text-lg">
-                Password
-              </label>
-              <input
-                id="password"
-                type="password"
-                placeholder="[your password]"
-                className="mb-6 h-12 w-full rounded-lg border border-gray-300 bg-white px-4 text-base outline-none transition focus:border-[#26476a]"
-              />
-
+            <div className="rounded-xl bg-[#1B2B44] p-8 shadow-2xl">
               <button
-                type="submit"
-                className="mb-5 h-12 w-full rounded-lg border border-[#7a5c1c] bg-[#f7bf5e] text-xl font-medium text-[#1f1f1f] transition hover:bg-[#efb44d]"
+                onClick={async () => {
+                  const result = await signIn("google", { 
+                    callbackUrl: "/member-home", // Where they go after success
+                    redirect: true
+                  });
+                  
+                  if (result?.error) {
+                    // You can add a state variable to show a "Access Denied" message here
+                    console.error("Login failed:", result.error);
+                  }
+                }}
+                className="flex w-full items-center justify-center gap-4 rounded-lg border border-gray-300 bg-white py-3 text-lg font-semibold text-gray-700 transition-all hover:bg-gray-50 active:scale-[0.98]"
               >
-                Sign In
+                <svg role="img" viewBox="0 0 24 24" className="w-5 h-5 fill-[#4285F4]" xmlns="http://www.w3.org/2000/svg">
+                  <path d={siGoogle.path} />
+                </svg>
+                Continue with Google
               </button>
-
-              <a href="#" className="text-lg underline underline-offset-4">
-                Forgot password?
-              </a>
-            </form>
+              
+              <p className="mt-6 text-center text-xs text-gray-200 uppercase tracking-widest">
+                @ucsd.edu only
+              </p>
+            </div>
           </div>
         </section>
       </div>
