@@ -2,6 +2,10 @@ import React from 'react';
 import Script from "next/script";
 import type { Metadata } from "next";
 import { siInstagram, siYoutube, siDiscord } from 'simple-icons';
+import dynamic from "next/dynamic";
+const RobotCanvas = dynamic(() => import("../components/RobotCanvas"), {
+        ssr: false,
+      });
 
 export const metadata: Metadata = {
   title: "Triton Robotics | Home",
@@ -32,6 +36,11 @@ export default function Page() {
       {/* TRANSITION BAR */}
       <div className="h-2 bg-gradient-to-r from-[#FFCD00] via-[#1B2B44] to-[#FFCD00]" />
 
+      {/* SIMULATION */}
+      <div className="w-full max-w-5xl mx-auto h-[500px] rounded-xl overflow-hidden shadow-lg bg-white">
+        <RobotCanvas />
+      </div>
+      
       {/* FOLLOW OUR JOURNEY */}
       <section className="py-20 px-4 max-w-7xl mx-auto text-center">
         <h2 className="text-3xl font-semibold text-[#1B2B44] mb-2 tracking-tight">
