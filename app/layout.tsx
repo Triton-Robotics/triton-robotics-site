@@ -1,7 +1,6 @@
 "use client";
 
 import "./globals.css";
-import type { Metadata } from "next";
 import { usePathname } from 'next/navigation';
 import { siInstagram, siYoutube, siDiscord } from 'simple-icons';
 
@@ -47,23 +46,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             )}
           </div>
 
-          <nav className="hidden md:flex gap-6 items-center text-sm font-semibold tracking-wide">
-            {[
-              { name: 'About', href: '/about' },
-              { name: 'Sponsors', href: '/sponsors' },
-              { name: 'Events', href: '/events' },
-            ].map((link) => {
-              const isActive = pathname === link.href;
-              return (
+              <div className="flex gap-2 ml-4">
                 <Link
-                  key={link.name}
-                  href={link.href}
-                  className={`px-3 py-2 rounded-md transition-all duration-200 ${isActive
-                    ? "bg-white/10 text-[#FFCD00]" // Active style: subtle light blue background + Gold text
-                    : "hover:text-[#FFCD00] text-white" // Inactive style
-                    }`}
+                  href="/member-login"
+                  className="bg-white text-[#1B2B44] px-5 py-1.5 rounded font-bold hover:bg-gray-100 transition-colors"
                 >
-                  {link.name}
+                  Sign In
                 </Link>
               );
             })}
