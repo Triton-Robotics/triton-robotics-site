@@ -31,7 +31,13 @@ export default function MemberLoginPage() {
 
         <section className="flex items-center justify-center px-8 py-16 md:px-14">
           <div className="w-full max-w-[420px] text-white">
-            <h1 className="mb-10 text-5xl font-light tracking-tight">Sign in</h1>
+            <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-white/55">
+              Member Portal
+            </p>
+            <h1 className="mb-4 text-5xl font-light tracking-tight">Sign in</h1>
+            <p className="mb-10 max-w-sm text-base text-[#d7e3ec]">
+              Temporary frontend flow. This form is for layout preview right now and routes into the member dashboard.
+            </p>
 
             <form className="rounded-md bg-[#f5f2ef] p-5 text-[#1f1f1f] shadow-xl">
               <label htmlFor="email" className="mb-2 block text-lg">
@@ -54,12 +60,12 @@ export default function MemberLoginPage() {
                 className="mb-6 h-12 w-full rounded-lg border border-gray-300 bg-white px-4 text-base outline-none transition focus:border-[#26476a]"
               />
 
-              <button
-                type="submit"
-                className="mb-5 h-12 w-full rounded-lg border border-[#7a5c1c] bg-[#f7bf5e] text-xl font-medium text-[#1f1f1f] transition hover:bg-[#efb44d]"
+              <Link
+                href="/member-home"
+                className="mb-5 flex h-12 w-full items-center justify-center rounded-lg border border-[#7a5c1c] bg-[#f7bf5e] text-xl font-medium text-[#1f1f1f] transition hover:bg-[#efb44d]"
               >
                 Sign In
-              </button>
+              </Link>
 
               <a href="#" className="text-lg underline underline-offset-4">
                 Forgot password?
