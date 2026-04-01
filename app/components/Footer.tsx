@@ -48,6 +48,8 @@ export default function Footer() {
             <li>
               <a
                 href="https://www.youtube.com/channel/UCdpkvP-ye3KutADXKiTE_fg"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 transition-colors hover:text-[#FFCD00]"
               >
                 <svg
@@ -64,6 +66,8 @@ export default function Footer() {
             <li>
               <a
                 href="https://discord.gg/P2Pd55NUU"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 transition-colors hover:text-[#FFCD00]"
               >
                 <svg
