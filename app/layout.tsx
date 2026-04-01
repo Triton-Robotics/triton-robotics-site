@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Inter } from "next/font/google";
 import { siDiscord, siInstagram, siYoutube } from "simple-icons";
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -92,7 +93,9 @@ export default function RootLayout({
           </nav>
         </header>
 
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow">
+          <SessionProvider>{children}</SessionProvider>
+        </main>
 
         {!isLoginPage && (
           <footer className="bg-[#1B2B44] px-8 pb-10 pt-20 text-white">

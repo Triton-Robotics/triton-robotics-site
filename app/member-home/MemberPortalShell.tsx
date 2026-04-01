@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { signOut, useSession } from "next-auth/react";
 
 const tabs = [
   { label: "Schedule", href: "/member-home" },
@@ -43,6 +44,7 @@ export function MemberPortalShell({
     day: "numeric",
     year: "numeric",
   }).format(new Date());
+  const { data: session } = useSession();
 
   return (
     <main className="min-h-screen bg-[linear-gradient(180deg,#1b2430_0%,#1a2330_100%)] text-white">
@@ -51,7 +53,7 @@ export function MemberPortalShell({
           <div className="mb-8 flex flex-wrap items-start justify-between gap-6">
             <div>
               <h1 className="text-4xl font-semibold tracking-tight text-white md:text-5xl">
-                Welcome Back, User!
+                Welcome Back, {session?.user?.name?.split(" ")[0] ?? "Member"}!
               </h1>
               <p className="mt-4 text-sm text-[#b4c6d7] md:text-base">{today}</p>
             </div>
@@ -76,6 +78,7 @@ export function MemberPortalShell({
               </HeaderIcon>
 
               <button
+                onClick={() => signOut({ callbackUrl: "/member-login" })}
                 type="button"
                 className="flex h-11 items-center gap-2 rounded-xl border border-white/10 bg-[#27486f] px-4 text-sm font-medium text-[#dbe8f8] transition hover:border-white/20 hover:text-white"
               >

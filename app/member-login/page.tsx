@@ -47,7 +47,7 @@ export default function MemberLoginPage() {
           <div className="w-full max-w-[400px] text-white">
             {/* Error box for if login fails */}
             {error && (
-              <div className="mb-6 rounded-lg border border-red-500/50 bg-red-500/10 p-4 text-sm text-red-200 animate-in fade-in slide-in-from-top-2 duration-300">
+              <div className="mb-6 rounded-lg border border-red-500/50 bg-red-500/10 p-4 text-sm text-black animate-in fade-in slide-in-from-top-2 duration-300">
                 <div className="flex items-center gap-3">
                   <svg className="h-5 w-5 shrink-0 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
