@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 
 const navLinks = [
-  { name: "About", href: "/about" },
+  { name: "About Us", href: "/about" },
   { name: "Sponsors", href: "/sponsors" },
   { name: "Events", href: "/events" },
 ];

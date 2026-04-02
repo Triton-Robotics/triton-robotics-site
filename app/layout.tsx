@@ -17,12 +17,6 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const navLinks = [
-  { name: "About Us", href: "/about" },
-  { name: "Sponsors", href: "/sponsors" },
-  { name: "Events", href: "/events" },
-];
-
 export default function RootLayout({
   children,
 }: {
