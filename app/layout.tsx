@@ -18,7 +18,7 @@ const inter = Inter({
 });
 
 const navLinks = [
-  { name: "About", href: "/about" },
+  { name: "About Us", href: "/about" },
   { name: "Sponsors", href: "/sponsors" },
   { name: "Events", href: "/events" },
 ];
