@@ -18,13 +18,25 @@ function parseTag(description?: string, tag?: string) {
   return match ? match[1].trim() : null;
 }
 
-export default function EventCard({ event }: { event: CalendarEvent }) {
+export default function EventCard({
+  event,
+  active,
+}: {
+  event: CalendarEvent;
+  active?: boolean;
+}) {
   const date = formatDate(event);
   const subteam = parseTag(event.description, "subteam");
   const type = parseTag(event.description, "type");
 
   return (
-    <div className="rounded-xl border border-white/10 bg-white/5 p-4 transition hover:bg-white/10">
+    <div
+      className={`rounded-xl border p-4 transition hover:bg-white/10 ${
+        active
+          ? "border-[#FFCD00]/50 bg-white/10"
+          : "border-white/10 bg-white/5"
+      }`}
+    >
       <div className="mb-2 flex items-start justify-between gap-2">
         <h3 className="text-sm font-semibold leading-snug text-white">
           {event.summary}
