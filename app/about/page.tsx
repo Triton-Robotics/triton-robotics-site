@@ -6,13 +6,13 @@ const sections = [
     label: "History",
     href: "/about/history",
     description: "How Triton Robotics came to be.",
-    image: "/photos/sentry.png",
+    image: "/photos/teams/sentry.png",
   },
   {
     label: "Meet the Leads",
     href: "/about/leads",
     description: "The people running the team.",
-    image: "/photos/leads/president.png",
+    image: "/photos/leads/all_leads.jpg",
   },
   {
     label: "Robomaster",
@@ -24,7 +24,7 @@ const sections = [
     label: "Teams",
     href: "/about/teams",
     description: "Mechanical, Software, and Non-Technical.",
-    image: "/photos/embedded.jpg",
+    image: "/photos/teams/embedded.jpg",
   },
 ];
 
@@ -84,14 +84,14 @@ export default function AboutPage() {
               <Link
                 key={section.href}
                 href={section.href}
-                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition hover:border-white/20 hover:bg-white/10"
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition duration-300 hover:border-white/20 hover:bg-white/10 hover:scale-105"
               >
                 <div className="relative h-48 w-full overflow-hidden">
                   <Image
                     src={section.image}
                     alt={section.label}
                     fill
-                    className="object-cover transition duration-300 group-hover:scale-105"
+                    className="object-cover transition"
                   />
                   {/* <div className="absolute inset-0 bg-gradient-to-t from-[#1B2B44] via-[#1B2B44]/40 to-transparent" /> */}
                 </div>
