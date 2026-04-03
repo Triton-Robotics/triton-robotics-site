@@ -1,0 +1,24 @@
+.rbc-calendar {
+  color: #1B2B44;
+}
+.rbc-toolbar {
+  color: #1B2B44;
+}
+.rbc-header {
+  color: #1B2B44;
+}
+.rbc-agenda-date-cell,
+.rbc-agenda-time-cell,
+.rbc-agenda-event-cell {
+  color: #1B2B44;
+}
+.rbc-off-range {
+  color: #9ca3af;
+}
+.rbc-today {
+  background-color: #2f6ed415;
+}
+.rbc-agenda-table tr {
+  background-color: transparent !important;
+  color: #1B2B44;
+}
