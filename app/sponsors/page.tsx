@@ -12,20 +12,20 @@ export default function SponsorsPage() {
       {/* LOGO GRID */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-12 items-center justify-items-center mb-16">
 
-        <Image src="/photos/kenesto.png" alt="Kenesto" width={200} height={100} />
-        <Image src="/photos/ucsd.png" alt="UCSD" width={220} height={100} />
-        <Image src="/photos/braincorp.png" alt="BrainCorp" width={200} height={100} />
+        <Image src="/photos/sponsors/kenesto.png" alt="Kenesto" width={200} height={100} />
+        <Image src="/photos/sponsors/ucsd.png" alt="UCSD" width={220} height={100} />
+        <Image src="/photos/sponsors/braincorp.png" alt="BrainCorp" width={200} height={100} />
 
-        <Image src="/photos/vinatech.png" alt="Vinatech" width={200} height={100} />
-        <Image src="/photos/keysight.png" alt="Keysight" width={200} height={100} />
-        <Image src="/photos/sunlu.png" alt="Sunlu" width={200} height={100} />
+        <Image src="/photos/sponsors/vinatech.png" alt="Vinatech" width={200} height={100} />
+        <Image src="/photos/sponsors/keysight.png" alt="Keysight" width={200} height={100} />
+        <Image src="/photos/sponsors/sunlu.png" alt="Sunlu" width={200} height={100} />
 
-        <Image src="/photos/st.png" alt="ST Microelectronics" width={200} height={100} />
-        <Image src="/photos/onshape.png" alt="Onshape" width={200} height={100} />
-        <Image src="/photos/moflon.png" alt="Moflon" width={200} height={100} />
+        <Image src="/photos/sponsors/st.png" alt="ST Microelectronics" width={200} height={100} />
+        <Image src="/photos/sponsors/onshape.png" alt="Onshape" width={200} height={100} />
+        <Image src="/photos/sponsors/moflon.png" alt="Moflon" width={200} height={100} />
 
-        <Image src="/photos/blueorigin.png" alt="Blue Origin" width={180} height={180} />
-        <Image src="/photos/asml.png" alt="ASML" width={220} height={120} />
+        <Image src="/photos/sponsors/blueorigin.png" alt="Blue Origin" width={180} height={180} />
+        <Image src="/photos/sponsors/asml.png" alt="ASML" width={220} height={120} />
 
       </div>
 
