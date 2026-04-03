@@ -13,6 +13,7 @@ const handler = NextAuth({
       const allowedEmails = [
         // "nallam@ucsd.edu",
         "tritonrobotics@ucsd.edu",
+        "abaskar@ucsd.edu",
       ];
 
       // Only allow if they have a UCSD email AND are in whitelist
