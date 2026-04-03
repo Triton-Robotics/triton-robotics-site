@@ -14,5 +14,5 @@ export default async function EventsPage() {
   // console.log("FULL RESPONSE:", JSON.stringify(data, null, 2));
   const events = data.items ?? [];
 
-  return <EventsClient events={events} calendarId={calendarId} />;
+  return <EventsClient events={events} />;
 }
