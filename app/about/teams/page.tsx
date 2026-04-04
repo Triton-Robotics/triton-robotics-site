@@ -1,6 +1,6 @@
-import { MechanicalContent } from "./mechanical/page";
-import { SoftwareContent } from "./software/page";
-import { NonTechnicalContent } from "./non-technical/page";
+import MechanicalContent from "./mechanical/MechanicalContent";
+import SoftwareContent from "./software/SoftwareContent";
+import NonTechnicalContent from "./non-technical/NonTechnicalContent";
 
 const teams = [
   { id: "mechanical", label: "Mechanical" },
