@@ -95,6 +95,24 @@ export default function Page() {
 
           {/* LEFT: Newsletters + Recruitment */}
           <div className="w-80 shrink-0 flex flex-col gap-8">
+            {/* Robot Button */}
+            <a
+              href="https://chimerical-torrone-76204f.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-2xl border border-[#FFCD00]/30 bg-[#1B2B44] p-6 flex flex-col gap-3 transition hover:border-[#FFCD00]/60"
+            >
+              <h3 className="text-lg font-bold text-white">Check Out Our Robot!</h3>
+              <p className="text-sm text-gray-300">
+                Interact with a 3D simulation render of our Sentry robot!
+              </p>
+              <span className="mt-1 inline-flex items-center gap-1.5 text-sm font-semibold text-[#FFCD00]">
+                Launch interactive model
+                <svg className="h-4 w-4 transition group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </a>
 
             {/* Recruitment */}
             <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6">
