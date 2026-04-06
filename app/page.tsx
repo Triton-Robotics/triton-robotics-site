@@ -97,9 +97,10 @@ export default function Page() {
           <div className="w-80 shrink-0 flex flex-col gap-8">
             {/* Robot Button */}
             <a
-              href="https://chimerical-torrone-76204f.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
+              // href="https://chimerical-torrone-76204f.netlify.app/"
+              href="/robotvis"
+              // target="_blank"
+              // rel="noopener noreferrer"
               className="group rounded-2xl border border-[#FFCD00]/30 bg-[#1B2B44] p-6 flex flex-col gap-3 transition hover:border-[#FFCD00]/60"
             >
               <h3 className="text-lg font-bold text-white">Check Out Our Robot!</h3>

@@ -57,7 +57,7 @@ function FAQRow({ faq }: { faq: FAQItem }) {
 
           {faq.guide && (
             <a
-              href="/recruit/team-guide.pdf"
+              href="/recruit/team_info.pdf"
               download
               className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-[#1B2B44] underline underline-offset-2 hover:text-[#FFCD00] transition"
             >
