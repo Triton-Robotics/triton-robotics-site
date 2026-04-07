@@ -1,17 +1,15 @@
 "use client";
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { signIn } from "next-auth/react"
 import { siGoogle } from 'simple-icons';
 import { useSearchParams } from 'next/navigation';
 
-export default function MemberLoginPage() {
+function LoginContent() {
   const searchParams = useSearchParams();
   const error = searchParams.get('error');
 
   return (
-    // h-screen makes it exactly the height of the window
-    // overflow-hidden disables scrollbar
     <main className="h-screen w-full overflow-hidden bg-[#1B2B44]">
       <div className="grid h-full w-full md:grid-cols-[1.05fr_1fr]">
         
@@ -32,20 +30,13 @@ export default function MemberLoginPage() {
                 alt="Triton Robotics crest"
                 className="w-64 shrink-0 drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all"
               />
-              {/* <img
-                src="/photos/Triton_Robotics_Letter_Logo_1.png"
-                alt="Triton Robotics wordmark"
-                className="w-full max-w-[400px] drop-shadow-2xl"
-              /> */}
             </div>
           </div>
         </section>
 
-        {/* bg-[#1B2B44] */}
         {/* RIGHT SECTION: Login Action */}
         <section className="flex h-full items-center justify-center px-8 bg-white">
           <div className="w-full max-w-[400px] text-white">
-            {/* Error box for if login fails */}
             {error && (
               <div className="mb-6 rounded-lg border border-red-500/50 bg-red-500/10 p-4 text-sm text-black animate-in fade-in slide-in-from-top-2 duration-300">
                 <div className="flex items-center gap-3">
@@ -69,12 +60,10 @@ export default function MemberLoginPage() {
               <button
                 onClick={async () => {
                   const result = await signIn("google", { 
-                    callbackUrl: "/member-home", // Where they go after success
+                    callbackUrl: "/member-home",
                     redirect: true
                   });
-                  
                   if (result?.error) {
-                    // You can add a state variable to show a "Access Denied" message here
                     console.error("Login failed:", result.error);
                   }
                 }}
@@ -94,5 +83,13 @@ export default function MemberLoginPage() {
         </section>
       </div>
     </main>
+  );
+}
+
+export default function MemberLoginPage() {
+  return (
+    <Suspense>
+      <LoginContent />
+    </Suspense>
   );
 }
