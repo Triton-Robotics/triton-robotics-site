@@ -1,6 +1,6 @@
-import { MechanicalContent } from "./mechanical/page";
-import { SoftwareContent } from "./software/page";
-import { NonTechnicalContent } from "./non-technical/page";
+import { MechanicalContent } from "./components/MechanicalContent";
+import { SoftwareContent } from "./components/SoftwareContent";
+import { NonTechnicalContent } from "./components/NonTechnicalContent";
 
 const teams = [
   { id: "mechanical", label: "Mechanical" },
@@ -34,10 +34,10 @@ export default function TeamsPage() {
         </div>
 
         {/* Sections */}
-        <div className="flex flex-col gap-32">
-          <section id="mechanical" className="scroll-mt-24">
-            <MechanicalContent />
-          </section>
+          <div className="flex flex-col gap-32">
+            <section id="mechanical" className="scroll-mt-24">
+              <MechanicalContent />
+            </section>
           <section id="software" className="scroll-mt-24">
             <SoftwareContent />
           </section>
